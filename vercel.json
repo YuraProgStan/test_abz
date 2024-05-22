@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "dist/main.js",
-      "use": "@vercel/node",
-      "config": {"start": "npm run vercel-start"}
+      "use": "@vercel/node"
     }
   ],
   "routes": [
