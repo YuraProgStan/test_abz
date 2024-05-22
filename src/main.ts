@@ -8,13 +8,13 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const config = app.get(ConfigService);
   const prefix = config.get<string>('app.prefix');
-  console.log("prefix");
-  console.log(prefix);
   app.setGlobalPrefix(prefix);
   // app.enableCors({
   //   origin: config.get<string>('client.URL'),
   // });
-  app.enableCors();
+  app.enableCors({
+    origin: true,
+  });
   const port = config.get<number>('app.port') || 5000;
   await app.listen(port);
 }
