@@ -1,8 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '../src/app.module';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function handler(req, res) {
+let cachedServer;
+
+async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     await app.init();
-    app.getHttpAdapter().getInstance()(req, res);
+    return app.getHttpAdapter().getInstance();
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+    if (!cachedServer) {
+        cachedServer = await bootstrap();
+    }
+    return cachedServer(req, res);
 }
