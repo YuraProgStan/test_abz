@@ -1,0 +1,70 @@
+{
+  "local": {
+    "app": {
+      "prefix": "/api/v1",
+      "port": 5000
+    },
+    "client": {
+      "URL": "http://localhost:3000"
+    },
+    "aws": {
+      "S3_NAME": "<S3_NAME>",
+      "S3_REGION": "<S3_REGION>",
+      "S3_ACCESS_KEY": "<S3_ACCESS_KEY>",
+      "S3_SECRET_KEY": "<S3_SECRET_KEY>"
+    },
+    "jwt": {
+      "TOKEN_SECRET": "my_token_secret",
+      "TOKEN_EXPIRATION": "40m"
+    },
+    "tinify": {
+      "API_KEY": "<API_KEY>"
+    }
+  },
+  "development": {
+    "app": {
+      "prefix": "/api/v1",
+      "port": 5000,
+      "ip": "http://127.0.0.1"
+    },
+    "client": {
+      "URL": "http://localhost:3000"
+    },
+    "aws": {
+      "S3_NAME": "<S3_NAME>",
+      "S3_REGION": "<S3_REGION>",
+      "S3_ACCESS_KEY": "<S3_ACCESS_KEY>",
+      "S3_SECRET_KEY": "<S3_SECRET_KEY>"
+    },
+    "jwt": {
+      "TOKEN_SECRET": "my_token_secret",
+      "TOKEN_EXPIRATION": "40m"
+    },
+    "tinify": {
+      "API_KEY": "<API_KEY>"
+    }
+  },
+  "production": {
+    "app": {
+      "prefix": "/api/v1",
+      "port": 5000,
+      "ip": "http://127.0.0.1"
+    },
+    "client": {
+      "URL": "http://localhost:3000"
+    },
+    "aws": {
+      "S3_NAME": "<S3_NAME>",
+      "S3_REGION": "<S3_REGION>",
+      "S3_ACCESS_KEY": "<S3_ACCESS_KEY>",
+      "S3_SECRET_KEY": "<S3_SECRET_KEY>"
+    },
+    "jwt": {
+      "TOKEN_SECRET": "my_token_secret",
+      "TOKEN_EXPIRATION": "40m"
+    },
+    "tinify": {
+      "API_KEY": "<API_KEY>"
+    }
+  }
+}
