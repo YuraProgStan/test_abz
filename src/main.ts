@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   const config = app.get(ConfigService);
-  const prefix = config.get<string>('app.prefix');
+  const prefix = config.get<string>('app.PREFIX');
   app.setGlobalPrefix(prefix);
   // app.enableCors({
   //   origin: config.get<string>('client.URL'),
@@ -15,7 +15,7 @@ async function bootstrap() {
   app.enableCors({
     origin: true,
   });
-  const port = config.get<number>('app.port') || 5000;
+  const port = config.get<number>('app.PORT') || 5000;
   await app.listen(port);
 }
 bootstrap();

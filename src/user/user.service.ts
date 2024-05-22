@@ -105,9 +105,9 @@ export class UserService {
     ]);
 
     const totalPages = Math.ceil(totalUsers / usersPerPage);
-    const apiIp = this.configService.get<string>('app.ip');
-    const apiPort = this.configService.get<string>('app.port');
-    const apiPrefix = this.configService.get<string>('app.prefix');
+    const apiIp = this.configService.get<string>('app.IP');
+    const apiPort = this.configService.get<string>('app.PORT');
+    const apiPrefix = this.configService.get<string>('app.PREFIX');
     const apiUrl = `${apiIp}:${apiPort}${apiPrefix}`;
     const nextUrl =
       page < totalPages
