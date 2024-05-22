@@ -1,14 +1,14 @@
 {
   "version": 2,
   "functions": {
-    "src/main.ts": {
+    "api/main.ts": {
       "runtime": "@vercel/node@1.3.1"
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/main.ts",
+      "dest": "/api/main.ts",
       "methods": [
         "GET",
         "POST",
