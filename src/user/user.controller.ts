@@ -12,7 +12,6 @@ import {
   FileTypeValidator,
   MaxFileSizeValidator,
   BadRequestException,
-  ParseIntPipe,
   HttpCode,
 } from '@nestjs/common';
 import { UserService } from './user.service';
@@ -27,7 +26,7 @@ import {
 } from '../constants';
 import { UserInterface } from './interfaces/user.interface';
 import { TokenValidationInterceptor } from './interceptors/token-validation-interceptor';
-// import { TokenValidationInterceptor } from './interceptors/token-validation-interceptor';
+import { OptionalIntPipe } from '../pipes/optional-int.pipe';
 
 @Controller('users')
 export class UserController {
@@ -69,8 +68,8 @@ export class UserController {
 
   @Get()
   async getAllUsers(
-    @Query('page', ParseIntPipe) page: number = 1,
-    @Query('count', ParseIntPipe) count: number = 10,
+    @Query('page', OptionalIntPipe) page: number = 1,
+    @Query('count', OptionalIntPipe) count: number = 6,
   ): Promise<{
     success: boolean;
     page: number;

@@ -108,7 +108,11 @@ export class UserService {
     const apiIp = this.configService.get<string>('app.IP');
     const apiPort = this.configService.get<string>('app.PORT');
     const apiPrefix = this.configService.get<string>('app.PREFIX');
-    const apiUrl = `${apiIp}:${apiPort}${apiPrefix}`;
+    const nodeEnv = this.configService.get<string>('env');
+    const apiUrl: string =
+      nodeEnv === 'production'
+        ? `${apiIp}${apiPrefix}`
+        : `${apiIp}:${apiPort}${apiPrefix}`;
     const nextUrl =
       page < totalPages
         ? `${apiUrl}/users?page=${page + 1}&count=${count}`
