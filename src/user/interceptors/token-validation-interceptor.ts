@@ -30,8 +30,6 @@ export class TokenValidationInterceptor implements NestInterceptor {
     }
 
     const tokenValidationResult = this.tokenService.validateToken(token);
-    console.log('tokenValidationResult');
-    console.log(tokenValidationResult);
 
     if (!tokenValidationResult.valid) {
       if (tokenValidationResult.message === 'Token has expired') {
