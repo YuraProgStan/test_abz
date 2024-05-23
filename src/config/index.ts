@@ -4,20 +4,7 @@ import { join } from 'path';
 export default () => {
   const env = process.env.NODE_ENV || 'local';
   const configFilePath = join(__dirname, '../data/config.json');
-  // const credentialsFilePath = join(__dirname, '../data/credentials.json'); //use for dev
-    const replaceEnvVariables = (obj) => {
-        Object.keys(obj).forEach((key) => {
-            if (typeof obj[key] === 'object') {
-                obj[key] = replaceEnvVariables(obj[key]);
-            } else if (typeof obj[key] === 'string') {
-                obj[key] = obj[key].replace(/\${(\w+)}/g, (match, p1) => {
-                    return process.env[p1];
-                });
-            }
-        });
-
-        return obj;
-    };
+  const credentialsFilePath = join(__dirname, '../data/credentials.json');
 
   let config = {
     env,
@@ -26,8 +13,7 @@ export default () => {
   };
   try {
     config = mergeFromFile(config, configFilePath, env);
-    config = replaceEnvVariables(config);
-    // config = mergeFromFile(config, credentialsFilePath, env); //use for dev
+    config = mergeFromFile(config, credentialsFilePath, env);
   } catch (error) {
     console.error('Failed to load config:', error);
   }

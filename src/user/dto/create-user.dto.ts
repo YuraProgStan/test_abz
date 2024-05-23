@@ -25,6 +25,6 @@ export class CreateUserDto {
   })
   phone: string;
 
-  @IsNumberString({}, { message: 'The position id must be an integer.' })
+  @IsNumberString({}, { message: 'The position id must be an integer.' }) //disable for seed.ts
   position_id: string | number;
 }
