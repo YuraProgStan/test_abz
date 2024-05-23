@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 import axios from 'axios';
 import sizeOf from 'image-size';
 import { validateSync, IsNotEmpty } from 'class-validator';
-import { CreateUserDto } from "../src/user/dto/create-user.dto";
+import { CreateUserDto } from '../src/user/dto/create-user.dto';
 import { ALLOWED_FILE_EXTENSIONS, IMAGE_DIMENSION, MAX_FILE_SIZE } from '../src/constants';
 import { FileUploadAwsService } from '../src/fileupload-aws/fileupload-aws.service';
 import { ConfigService } from '@nestjs/config';
@@ -11,8 +11,8 @@ import { cropImageToCenter } from '../src/utils/crop-image';
 import { optimizeImage } from '../src/utils/optimize-image';
 import * as dayjs from 'dayjs';
 import { editFileName } from '../src/utils/edit.file.name';
-import { NestFactory } from "@nestjs/core";
-import { AppModule } from "../src/app.module";
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '../src/app.module';
 
 
 const prisma = new PrismaClient();
